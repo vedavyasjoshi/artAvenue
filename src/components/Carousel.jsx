@@ -1,6 +1,8 @@
 import { useState } from "react";
 import { carouselImages as images } from "../assets/data";
 import "../App.css";
+import leftArrow from "../assets/left-arrow.png";
+import rightArrow from "../assets/right-arrow.png";
 
 const Carousel = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -19,9 +21,7 @@ const Carousel = () => {
 
   return (
     <div className="relative flex mx-10 h-[70%]">
-      <button className="h-20" onClick={prevSlide}>
-        &lt;
-      </button>
+      <img src={leftArrow} alt="prev" className="h-20 cursor-pointer opacity-50 hover:opacity-100 mt-12" onClick={prevSlide} />
       <img
         src={images[currentIndex]}
         alt="carousel-img"
@@ -31,9 +31,7 @@ const Carousel = () => {
             "linear-gradient(to bottom, rgba(0, 0, 0, 1), rgba(0, 0, 0, 0))",
         }}
       />
-      <button className="h-20" onClick={nextSlide}>
-        &gt;
-      </button>
+      <img src={rightArrow} alt="next" className="h-20 cursor-pointer opacity-50 hover:opacity-100 mt-12" onClick={nextSlide} />
     </div>
   );
 };
