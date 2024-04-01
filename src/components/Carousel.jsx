@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { carouselImages as images } from "../assets/data";
 import "../App.css";
 import leftArrow from "../assets/left-arrow.png";
@@ -18,6 +18,12 @@ const Carousel = () => {
       prevIndex === 0 ? images.length - 1 : prevIndex - 1
     );
   };
+
+  useEffect(()=>{
+    setInterval(() => {
+        nextSlide()
+    }, 5000);
+  },[])
 
   return (
     <div className="relative flex mx-10 h-[70%]">
